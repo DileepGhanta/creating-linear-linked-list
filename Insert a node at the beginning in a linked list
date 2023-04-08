@@ -1,0 +1,40 @@
+/*Program to insert a node at the begining in a linked list*/
+#include<stdio.h>
+#include<stdlib.h>
+struct insert{
+    int data;
+    struct insert *next;
+};
+int main(){
+    struct insert *start=NULL,*new_node,*ptr;
+    do{
+        new_node=(struct insert *)malloc(sizeof(struct insert));
+        printf("Enter 0 to exit or any other value to continue ");
+        scanf("%d",&new_node->data);
+        new_node->next=NULL;
+        if(start==NULL){
+            start=new_node;
+            ptr=start;
+        }
+        else{
+            ptr->next=new_node;
+            ptr=new_node;
+                    }
+    }while(new_node->data!=0);
+    printf("\n Before inserting at the begining\n");
+    new_node=start;
+    while(new_node->next!=NULL){
+        printf("%d\t",new_node->data);
+        new_node=new_node->next;
+    }
+    new_node=(struct insert *)malloc(sizeof(struct insert));
+    new_node->data=269;
+    new_node->next=start;
+    start=new_node;
+     printf("\n After inserting at the begining\n");
+    new_node=start;
+    while(new_node->next!=NULL){
+        printf("%d\t",new_node->data);
+        new_node=new_node->next;
+    }
+}
