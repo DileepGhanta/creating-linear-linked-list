@@ -1,0 +1,45 @@
+/*Program for deleting a node at end in a linked list*/
+#include<stdio.h>
+#include<stdlib.h>
+struct delete{
+    int data;
+    struct delete *next;
+};
+int main(){
+    struct delete *start=NULL,*new_node,*ptr;
+    do{
+    printf("Enter 0 or any other value to continue ");
+    new_node=(struct delete *)malloc(sizeof(struct delete));
+    scanf("%d",&new_node->data);
+    new_node->next=NULL;
+    if(start==NULL){
+        start=new_node;
+        ptr=start;
+    }
+    else{
+        ptr->next=new_node;
+        ptr=new_node;
+    }
+    }while(new_node->data!=0);
+    new_node=start;
+    printf("\nBefore deleting a node at end \n");
+    while(new_node->next!=NULL){
+        printf("%d\t",new_node->data);
+         new_node=new_node->next;
+    }
+    new_node=start;
+    while(new_node->next!=NULL){
+        ptr=new_node;
+        new_node=new_node->next;
+        if(new_node->next==NULL){
+           ptr->next=NULL;
+           free(new_node->next);
+        }
+    }
+    printf("\nAfter deleting a node at end \n");
+    new_node=start;
+    while(new_node->next!=NULL){
+        printf("%d\t",new_node->data);
+         new_node=new_node->next;
+    }
+}
