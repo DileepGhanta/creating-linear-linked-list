@@ -1,0 +1,51 @@
+/*Program to delete a node after a given element in a linked list*/
+#include<stdio.h>
+#include<stdlib.h>
+struct delete{
+    int data;
+    struct delete *next;
+};
+int main(){
+    struct delete *start=NULL,*new_node,*ptr,*postptr;
+    do{
+        printf("Enter 0 to exit or any other value to continue ");
+        new_node=(struct delete *)malloc(sizeof(struct delete));
+        scanf("%d",&new_node->data);
+        new_node->next=NULL;
+        if(start==NULL){
+            start=new_node;
+            ptr=new_node;
+        }
+        else{
+            ptr->next=new_node;
+            ptr=new_node;
+        }
+    }while(new_node->data!=0);
+    printf("\nEnter any value to delete the Node after that element \n");
+    int k;
+    scanf("%d",&k);
+    new_node=start;
+    printf("Before deleting the node\n");
+    while(new_node->next!=NULL){
+        printf("%d\t",new_node->data);
+        new_node=new_node->next;
+    }
+    new_node=start;
+    while(new_node->next!=NULL){
+        if(new_node->data==k){
+           ptr=new_node->next;
+           new_node=ptr->next;
+           postptr->next=new_node;
+           free(ptr);
+           break;
+        }
+        new_node=new_node->next;
+        postptr=new_node;
+            }
+    new_node=start;
+    printf("\nAfter deleting the node\n");
+    while(new_node->next!=NULL){
+        printf("%d\t",new_node->data);
+        new_node=new_node->next;
+    }
+}
