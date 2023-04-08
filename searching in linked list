@@ -1,0 +1,42 @@
+/*Program for searching an element in linked list*/
+#include<stdio.h>
+#include<stdlib.h>
+struct search{
+    int data;
+    struct search *next;
+};
+int main(){
+ struct search *new_node,*ptr,*start=NULL;
+ int k,ct=1,j=0;
+ do{
+ new_node=(struct search *)malloc(sizeof(struct search));
+ printf("Enter 0 for exit or anything to continue ");
+ scanf("%d",&new_node->data);
+ new_node->next=NULL;
+ if(start==NULL){
+    start=new_node;
+    ptr=start;
+ }
+ else{
+   ptr->next=new_node;
+   ptr=new_node;
+ }
+ }while(new_node->data!=0);
+ printf("\nEnter value to search ");
+scanf("%d",&k);
+new_node=start;
+while(new_node->next!=NULL){
+    if(new_node->data==k){
+    printf("\nIn node %d",ct);
+    j=0;
+    break;
+    }
+    else{
+        ct++;
+        new_node=new_node->next;
+        j=1;
+    }
+}
+    if(j)
+    printf("\n%d element Not found in the linked list",k);
+}
