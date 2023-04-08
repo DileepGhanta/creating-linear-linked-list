@@ -1,0 +1,35 @@
+/*Program for creating a linear linked list*/
+#include<stdio.h>
+#include<stdlib.h>
+#include<malloc.h>
+struct s1{
+	int ch;
+	struct s1 *ptr;
+};
+int main(){
+	int n;
+	struct s1 *start=NULL,*new_node,*pt;
+	printf("Enter Number of Nodes ");
+	scanf("%d",&n);
+	for(int i=1;i<=n;i++){
+     new_node=(struct s1*)malloc(sizeof(struct s1));  
+     printf("\nEnter any number ");
+	 fflush(stdin);
+	scanf("%d",&new_node->ch);
+	 new_node->ptr=NULL;
+	  if(start==NULL){
+	 start=new_node;
+	 pt=start;
+	 }
+	 else{
+       pt->ptr=new_node; 
+	   pt=new_node; 
+	 }
+	}
+		new_node=start;
+	for(int i=1;i<=n;i++){
+		printf("%d\t",new_node->ch);
+        new_node=new_node->ptr;
+	}
+	printf("\n");
+}
