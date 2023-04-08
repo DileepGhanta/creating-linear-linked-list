@@ -1,0 +1,52 @@
+/*Program to insert a node before a given element in a linked list*/
+#include<stdio.h>
+#include<stdlib.h>
+struct insert{
+    int data;
+    struct insert *next;
+};
+int main(){
+    struct insert *start=NULL,*new_node,*ptr,*preptr;
+    do{
+        printf("Enter 0 to exit or any other value to conntinue ");
+        new_node=(struct insert *)malloc(sizeof(struct insert));
+        scanf("%d",&new_node->data);
+        new_node->next=NULL;
+        if(start==NULL){
+            start=new_node;
+            ptr=new_node;
+        }
+        else{
+            ptr->next=new_node;
+            ptr=new_node;
+        }
+    }while(new_node->data!=0);
+    new_node=start;
+    printf("\nBefore Inserting the node \n");
+    while(new_node->next!=NULL){
+        printf("%d\t",new_node->data);
+        new_node=new_node->next;
+    }
+    printf("\nEnter value for which a node should be inserted before it ");
+    int k;
+    scanf("%d",&k);
+    new_node=start;
+    while(new_node->next!=NULL){
+        if(new_node->data==k){
+         new_node=(struct insert *)malloc(sizeof(struct insert));
+         ptr->next=new_node;
+         new_node->data=269;
+         new_node->next=preptr;
+         break;
+        }
+        ptr=new_node;
+        new_node=new_node->next;
+        preptr=new_node;
+    }
+     new_node=start;
+    printf("\nAfter Inserting the node \n");
+    while(new_node->next!=NULL){
+        printf("%d\t",new_node->data);
+        new_node=new_node->next;
+    }
+}
